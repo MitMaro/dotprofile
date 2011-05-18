@@ -1,0 +1,28 @@
+#!/bin/bash
+: '
+Personal .profile - Bash Settings
+By: Tim Oram
+'
+
+# misc bash settings
+bind "set show-all-if-ambiguous on" # show tab completions sooner
+bind "set completion-ignore-case on" # ignore case in tab completions
+bind "set expand-tilde on" # exapand the ~ to the full path
+shopt -s cdspell # cd fuzzy spelling
+shopt -s no_empty_cmd_completion # stops empty line completions
+
+# history
+shopt -s histappend # append to end of history file, don't overwrite
+HISTCONTROL=ignoredups # ignore duplicate commands
+HISTFILESIZE=100000 # keep this many previous commands
+HISTSIZE=100000 # similar to HISTFILESIZE
+HISTIGNORE="ls,history*,exit" # ignore these commands
+# this saves the command to the history file immediately
+PROMPT_COMMAND="${PROMPT_COMMAND}history -a;"
+
+# enable unicode
+export LC_CTYPE=en_US.UTF-8
+
+# ls colors
+export CLICOLOR=1
+export LSCOLORS=DxGxcxdxCxcgcdabagacad

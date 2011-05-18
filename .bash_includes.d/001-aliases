@@ -1,0 +1,57 @@
+#!/bin/bash
+: '
+Personal .profile - Bash Aliases
+By: Tim Oram
+'
+
+# sometimes I like to quit
+alias quit=exit
+
+# color my diff
+alias diff=colordiff
+
+# sha1 hash shortcut
+alias sha1="openssl sha1"
+
+# hackish get current local ip
+alias myip="ifconfig | grep 192"
+
+# ps search
+alias apps="ps ax | grep"
+
+# remove directory
+alias rd="rm -rf"
+
+# php shortcuts
+alias php-vulcan="php -dvld.active=1"
+alias phpdoc="php ~/Code/PhpDocumentor/phpdoc"
+
+# editor
+__compat "OSX" 'alias e="edit"'
+__compat "Linux" 'alias e="vim"'
+
+# komodo
+__compat "OSX" "alias k=\"open -a 'Komodo IDE'\""
+
+# profile
+alias .p=". ~/.profile"
+
+# quick edits
+alias hosts="edit /etc/hosts"
+alias e.p="e ~/.profile"
+__compat "OSX" 'alias e.vhosts="e /usr/local/etc/nginx/vhosts-available/"'
+__compat "OSX" 'alias e.nginx="e /usr/local/etc/nginx/nginx.conf"'
+alias e.includes="e ~/.bash_includes.d"
+alias e.gitconfig="e ~/.gitconfig"
+alias e.etc="e /usr/local/etc"
+alias e.bin="e ~/bin"
+
+# git achievements
+alias git="git-achievements"
+
+# logs
+__compat "OSX" 'alias nlog="tail -f -n50 /usr/local/var/logs/nginx/error.log"'
+
+# Add colors to ls
+__compat "OSX" "alias ls='gls --color'"
+__compat "Linux" "alias ls='ls --color'"

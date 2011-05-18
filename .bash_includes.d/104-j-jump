@@ -1,0 +1,9 @@
+#!/bin/bash
+: '
+Personal .profile - j (jump) command setup
+By: Tim Oram
+'
+
+# j (jump command)
+export JPY=$J_DIR/j.py
+. $J_DIR/j.sh

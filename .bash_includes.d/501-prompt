@@ -1,0 +1,49 @@
+#!/bin/bash
+: '
+Personal .profile - Command Prompt Setup
+By: Tim Oram
+'
+
+___check_git() {
+	local base_dir
+	base_dir=$(git-rev-parse --show-cdup 2>/dev/null) || return 1
+	echo -e "$COLOR_GREEN(${COLOR_YELLOW}GIT$COLOR_GREEN) "
+}
+
+___check_git_branch_info() {
+	local base_dir modified_count
+
+	base_dir=$(git-rev-parse --show-cdup 2>/dev/null) || return 1
+	
+	modified_count=`git status --porcelain -uno | wc -l`
+	if (( $modified_count > 0 )); then
+		echo -e "  $COLOR_GREEN($COLOR_RED$(__git_ps1 "%s")$COLOR_GREEN)"
+	else
+		echo -e "  $COLOR_GREEN($COLOR_LIGHT_GREY$(__git_ps1 "%s")$COLOR_GREEN)"
+	fi
+	
+}
+
+___prompt_setup() {
+	local EXITSTATUS="$?" user_color prompt_color prompt_symbol
+	
+	if [[ $UID -eq 0 ]]; then
+		user_color=$COLOR_RED
+	else
+		user_color=$COLOR_DARK_CYAN
+	fi
+	prompt_color=$COLOR_GREEN
+	
+	if [[ $EXITSTATUS -eq 0 ]]; then
+		prompt_symbol="\n\[$COLOR_YELLOW\]:)"
+	else
+		prompt_symbol="\n\[$COLOR_RED\]:("
+	fi
+	PS1="\[$prompt_color\]\$(___check_git)\[$user_color\]\u \[$prompt_color\]\
+\w (\$(ls -1 | wc -l | sed 's: ::g') files)\$(___check_git_branch_info)\
+\$(__tasks_ps1)\$(__tasks_prompt)\[$prompt_color\] $prompt_symbol\[$COLOR_NORMAL\] "
+	
+}
+
+PROMPT_COMMAND="___prompt_setup;"$PROMPT_COMMAND
+	

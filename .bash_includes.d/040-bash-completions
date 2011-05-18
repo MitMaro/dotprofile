@@ -1,0 +1,9 @@
+#!/bin/bash
+: '
+Personal .profile - Bash Completions
+By: Tim Oram
+'
+
+# completion
+__compat "OSX"  '. `brew --prefix`/etc/bash_completion'
+source_all ~/.bash_completions.d/*

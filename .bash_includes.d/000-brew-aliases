@@ -1,0 +1,22 @@
+#!/bin/bash
+
+: '
+Personal .profile - Brew coreutils Aliases
+By: Tim Oram
+
+In homebrew all coreutils commands are prefixed with g to avoid
+conflicts with existing Mac OSX commands. This file replaces some
+of the native Mac OSX commands with their GNU counterparts.
+
+Reference: /usr/local/Cellar/coreutils/8.7/aliases
+'
+
+# OSX only
+if [[ "$(uname)" == 'Darwin' ]]; then
+
+
+## homebrew coreutils aliases
+alias ls="$brew_prefix/bin/gls"
+
+
+fi

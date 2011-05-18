@@ -1,0 +1,7 @@
+#!/bin/bash
+: '
+Personal .profile - Wish List (t alias)
+By: Tim Oram
+'
+
+alias wl='python $T_PATH --task-dir $TASK_LIST_DIR --list wish_list'

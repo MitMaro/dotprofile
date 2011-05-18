@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+# OSX only
+if [[ "$(uname)" == 'Darwin' ]]; then
+
+
+[[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
+
+export PATH=/usr/local/Cellar/ruby/1.9.2-p180/bin:$PATH
+
+
+fi

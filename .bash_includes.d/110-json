@@ -1,0 +1,10 @@
+#!/bin/bash
+
+: '
+Personal .profile - JSON formatter
+By: Tim Oram
+'
+
+json.format() {
+	curl $* | python -mjson.tool
+}
