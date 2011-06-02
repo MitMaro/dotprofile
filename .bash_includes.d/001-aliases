@@ -22,6 +22,9 @@ alias apps="ps ax | grep"
 # remove directory
 alias rd="rm -rf"
 
+# date shortcuts
+alias timestamp="date +%s"
+
 # php shortcuts
 alias php-vulcan="php -dvld.active=1"
 alias phpdoc="php ~/Code/PhpDocumentor/phpdoc"
