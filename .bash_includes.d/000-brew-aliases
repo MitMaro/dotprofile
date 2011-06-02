@@ -17,6 +17,6 @@ if [[ "$(uname)" == 'Darwin' ]]; then
 
 ## homebrew coreutils aliases
 alias ls="$brew_prefix/bin/gls"
-
+alias cal="gcal"
 
 fi
