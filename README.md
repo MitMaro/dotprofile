@@ -21,6 +21,7 @@ Requirements
     * coreutils
     * readline
     * lesspipe
+    * gcal
 
 ### Ubuntu/Linux
 
