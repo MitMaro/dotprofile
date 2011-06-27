@@ -4,4 +4,4 @@ Personal .profile - Store List (t alias)
 By: Tim Oram
 '
 
-alias l='python $T_PATH --task-dir $TASK_LIST_DIR --list things_to_get'
+alias store='python $T_PATH --task-dir $__TASKS_LIST_DIR --list things_to_get'
