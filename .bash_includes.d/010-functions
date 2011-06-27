@@ -39,3 +39,9 @@ __compat() {
 		eval "$*"
 	fi
 }
+
+__DEBUG_MESSAGE() {
+	if ( ${__PROFILE_DEBUG:-""} ); then
+		echo "$*"
+	fi
+}
