@@ -50,11 +50,15 @@ alias e.etc="e /usr/local/etc"
 alias e.bin="e ~/bin"
 
 # git achievements
-alias git="git-achievements"
-
+if [ `type -t git-achievements` ]; then
+    alias git="git-achievements"
+else
+    __DEBUG_MESSAGE "git-achievements not found, disabling."
+fi
 # logs
 __compat "OSX" 'alias nlog="tail -f -n50 /usr/local/var/logs/nginx/error.log"'
 
-# Add colors to ls
+# Add colors to ls, grep
 __compat "OSX" "alias ls='gls --color'"
 __compat "Linux" "alias ls='ls --color'"
+alias grep='grep --color=auto'
