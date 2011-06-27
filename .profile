@@ -3,6 +3,9 @@ My personal .profile
 By: Tim Oram
 '
 
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 # import functions, provides source_all function
 . ~/.bash_includes.d/010-functions
 
