@@ -35,7 +35,7 @@ __TASK_PROMPT_PREFIX=${__TASK_PROMPT_PREFIX:-"\n"}
 __TASK_PROMPT_POSTFIX=${__TASK_PROMPT_POSTFIX:-"\n"}
 
 # only load tasks if found
-if [ -f "$_TASKS_T_PATH" ]; then
+if [ -f "$__TASKS_T_PATH" ]; then
 
 # task list switcher/creator
 tasks () {
