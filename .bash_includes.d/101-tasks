@@ -6,7 +6,7 @@ A task list switcher for `t`
 See: https://github.com/MitMaro/tasks
 
 By: Tim Oram
-'
+#'
 
 # set some defaults
 __TASKS_T_PATH=${__TASKS_T_PATH:-~/bin/t/t.py}
@@ -33,6 +33,9 @@ __TASK_PS1_POSTFIX=${__TASK_PS1_POSTFIX:-")"}
 
 __TASK_PROMPT_PREFIX=${__TASK_PROMPT_PREFIX:-"\n"}
 __TASK_PROMPT_POSTFIX=${__TASK_PROMPT_POSTFIX:-"\n"}
+
+# only load tasks if found
+if [ -f "$_TASKS_T_PATH" ]; then
 
 # task list switcher/creator
 tasks () {
@@ -96,61 +99,7 @@ tasks () {
 # load the default saved task list when this file is loaded
 tasks
 
-# prompt message for unfinished tasks
-__tasks_prompt() {
-	
-	local task
-	local task_count
-	local rand=$((RANDOM%$__TASKS_SHOW_PROBABILITY+1)) 
-	
-	# only show the message 1 out of __TASKS_SHOW_PROBABILITY times
-	if [ $rand -eq 1 ]; then
-		task_count=`t | wc -l | sed -e's/ *//'`
-		
-		# no tasks, no point showing anything
-		if [ $task_count -eq 0 ]; then
-			return
-		fi
-		
-		# pick a random number
-		rand=$((RANDOM%$task_count+1))
-		
-		# get a random task
-		task=`head -$rand $__TASKS_LIST_DIR/$__TASKS_LIST_FILE | tail -1 | awk -F"|" '{print \$1}'`
-		
-		# show a message on that task
-		echo -e "$__TASK_PROMPT_PREFIX${__TASKS_COLOR_NORMAL}Have you forgotten about the task: $COLOR_YELLOW"\
-$task "$__TASKS_COLOR_NORMAL?$__TASKS_COLOR_RESET$__TASK_PROMPT_POSTFIX"
-		
-	fi
-}
-
-# coloured task counts
-__tasks_ps1() {
-	
-	# default color
-	local color=$__TASKS_DEFAULT_COUNT_COLOR;
-	local task_count=`t | wc -l | sed -e's/ *//'`
-	
-	# if no tasks, do nothing
-	if (( $task_count < 1 )); then
-		return
-	fi
-	
-	# Show different colors depending on number of tasks not complete.
-	if (( $task_count > $__TASKS_HIGH_COUNT_LIMIT )); then
-		color=$__TASKS_HIGH_COUNT_COLOR;
-	elif (( $task_count > $__TASKS_MEDIUM_COUNT_LIMIT )); then
-		color=$__TASKS_MEDIUM_COUNT_COLOR;
-	elif (( $task_count > $__TASKS_LOW_COUNT_LIMIT )); then
-		color=$__TASKS_LOW_COUNT_COLOR;
-	fi
-	
-	# add an 's' if more than one task
-	if (( $task_count == 1 )); then
-		echo -e "$__TASKS_COLOR_NORMAL$__TASK_PS1_PREFIX$color$task_count Task$__TASKS_COLOR_NORMAL in $__TASKS_LIST_FILE$__TASKS_COLOR_NORMAL$__TASK_PS1_POSTFIX$__TASKS_COLOR_RESET"
-	else
-		echo -e "$__TASKS_COLOR_NORMAL$__TASK_PS1_PREFIX$color$task_count Tasks$__TASKS_COLOR_NORMAL in $__TASKS_LIST_FILE$__TASKS_COLOR_NORMAL$__TASK_PS1_POSTFIX$__TASKS_COLOR_RESET"
-	fi
-}
+else
+	__DEBUG_MESSAGE "tasks not found, skipping.";
+fi
 
