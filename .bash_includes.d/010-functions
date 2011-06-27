@@ -8,6 +8,7 @@ By: Tim Oram
 source_all() {
 	while [ $# -gt 0 ]
 	do
+		__DEBUG_MESSAGE "Sourcing: $1"
 		. "$1"
 		shift
 	done
@@ -41,7 +42,8 @@ __compat() {
 }
 
 __DEBUG_MESSAGE() {
-	if ( ${__PROFILE_DEBUG:-""} ); then
+	__PROFILE_DEBUG=${__PROFILE_DEBUG:-false}
+	if ( $__PROFILE_DEBUG ); then
 		echo "$*"
 	fi
 }
