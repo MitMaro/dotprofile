@@ -20,3 +20,21 @@ Requirements
     * bash-completion
     * coreutils
     * readline
+    * lesspipe
+
+### Ubuntu/Linux
+
+Following packages are required:
+
+* git-core
+
+
+Options and Settings
+------------------
+### __PROFILE_DEBUG
+
+**Default:** `false`
+
+Sets debug output. The built in checks for missing components will show a message on a failure if
+you set the `__PROFILE_DEBUG` flag to a true value. This will help determining
+why a certain component is disabled.
