@@ -2,8 +2,14 @@
 : '
 Personal .profile - j (jump) command setup
 By: Tim Oram
-'
+#'
 
 # j (jump command)
 export JPY=$J_DIR/j.py
-. $J_DIR/j.sh
+
+# make sure that jump is installed
+if [ -f $J_DIR/j.sh ]; then
+	. $J_DIR/j.sh
+else
+	__DEBUG_MESSAGE "j not found, skipping."
+fi
