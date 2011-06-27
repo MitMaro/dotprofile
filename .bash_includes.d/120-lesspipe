@@ -1,0 +1,22 @@
+#!/bin/bash
+: '
+Personal .profile - lesspipe
+#'
+___lesspipe_install_linux () {
+    if [ ! -x /usr/bin/lesspipe ]; then
+        __DEBUG_MESSAGE "lesspipe not installed, skipping."
+        return
+    fi
+    eval "$(SHELL=/bin/sh lesspipe)"
+}
+
+___lesspipe_install_osx () {
+    if [ ! -x /usr/local/bin/lesspipe.sh ]; then
+        __DEBUG_MESSAGE "lesspipe not installed, skipping."
+        return
+    fi
+    eval "$(SHELL=/bin/sh lesspipe.sh)"
+}
+
+__compat "Linux" "___lesspipe_install_linux"
+__compat "OSX" "___lesspipe_install_osx"
