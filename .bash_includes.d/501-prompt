@@ -65,9 +65,9 @@ $task "$__TASKS_COLOR_NORMAL?$__TASKS_COLOR_RESET$__TASK_PROMPT_POSTFIX"
 # coloured task counts
 __tasks_ps1() {
 
-        if [ ! `type -t tasks` ]; then
-                return
-        fi
+	if [ ! `type -t tasks` ]; then
+		return
+	fi
 	
 	# default color
 	local color=$__TASKS_DEFAULT_COUNT_COLOR;
@@ -101,7 +101,7 @@ ___prompt_setup() {
 	if [[ $UID -eq 0 ]]; then
 		user_color=$COLOR_RED
 	else
-		user_color=$COLOR_DARK_CYAN
+		user_color=${__PROMPT_USER_COLOR:-$COLOR_DARK_CYAN}
 	fi
 	prompt_color=$COLOR_GREEN
 	
