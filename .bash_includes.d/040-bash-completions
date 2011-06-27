@@ -3,7 +3,17 @@
 Personal .profile - Bash Completions
 By: Tim Oram
 '
+___bash_completions_install () {
+    if [ -f $1 ] && ! shopt -oq posix; then
+        . $1
+        source_all ~/.bash_completions.d/*
+    else
+        __DEBUG_MESSAGE "$0 not found, bash completions disabled."
+    fi
+    
+}
 
 # completion
-__compat "OSX"  '. `brew --prefix`/etc/bash_completion'
-source_all ~/.bash_completions.d/*
+__compat "OSX"  '___bash_completions_install `brew --prefix`/etc/bash_completion'
+__compat "Linux"  '___bash_completions_install /etc/bash_completion'
+
