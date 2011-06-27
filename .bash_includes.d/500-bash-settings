@@ -10,10 +10,11 @@ bind "set completion-ignore-case on" # ignore case in tab completions
 bind "set expand-tilde on" # exapand the ~ to the full path
 shopt -s cdspell # cd fuzzy spelling
 shopt -s no_empty_cmd_completion # stops empty line completions
+shopt -s checkwinsize # correct wrap on resize
 
 # history
 shopt -s histappend # append to end of history file, don't overwrite
-HISTCONTROL=ignoredups # ignore duplicate commands
+HISTCONTROL=ignoredups:ignorespace # ignore duplicate commands and space prepended commands
 HISTFILESIZE=100000 # keep this many previous commands
 HISTSIZE=100000 # similar to HISTFILESIZE
 HISTIGNORE="ls,history*,exit" # ignore these commands
