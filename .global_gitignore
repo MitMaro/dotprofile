@@ -1,0 +1,72 @@
+# ignore hidden files
+.*
+
+# java
+*.class
+
+# temp files
+*~
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# vim
+.*.sw[a-z]
+*.un~
+Session.vim
+
+# ruby
+*.gem
+
+# python
+*.py[co]
+
+# cvs
+/CVS/*
+*/CVS/*
+.cvsignore
+*/.cvsignore
+
+# subversion
+.svn/
+
+# mercurial
+/.hg/*
+*/.hg/*
+.hgignore
+
+# eclipse
+*.pydevproject
+.project
+.metadata
+
+# netbeans
+nbproject/
+nbactions.xml
+
+# komodo ide
+*.komodoproject
+*.komodotools
+
+# textmate
+*.tmproj
+*.tmproject
+
+# kde
+.directory
+
+# osx
+.Spotlight-V100
+.Trashes
+._*
+.DS_Store
+Icon?
+
+# windows
+Thumbs.db
+Desktop.ini
+
+# allow these
+!.gitignore
+!.gitmodules
