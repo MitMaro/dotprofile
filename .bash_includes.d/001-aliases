@@ -40,7 +40,7 @@ __compat "OSX" "alias k=\"open -a 'Komodo IDE'\""
 alias .p=". ~/.profile"
 
 # quick edits
-alias hosts="edit /etc/hosts"
+alias e.hosts="edit /etc/hosts"
 alias e.p="e ~/.profile"
 __compat "OSX" 'alias e.vhosts="e /usr/local/etc/nginx/vhosts-available/"'
 __compat "OSX" 'alias e.nginx="e /usr/local/etc/nginx/nginx.conf"'
@@ -48,6 +48,7 @@ alias e.includes="e ~/.bash_includes.d"
 alias e.gitconfig="e ~/.gitconfig"
 alias e.etc="e /usr/local/etc"
 alias e.bin="e ~/bin"
+alias e.ssh="e ~/.ssh/config"
 
 # git achievements
 if [ `type -t git-achievements` ]; then
@@ -62,3 +63,7 @@ __compat "OSX" 'alias nlog="tail -f -n50 /usr/local/var/logs/nginx/error.log"'
 __compat "OSX" "alias ls='gls --color'"
 __compat "Linux" "alias ls='ls --color'"
 alias grep='grep --color=auto'
+
+
+# clear alias
+alias c=clear
