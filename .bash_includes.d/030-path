@@ -6,7 +6,7 @@ By: Tim Oram
 #'
 
 # Homebrew, mostly
-__compat "OSX" "PATH=/usr/local/bin:/usr/local/sbin:$PATH"
+__compat "OSX" "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH"
 
 # extra git commands
 __compat "OSX" "PATH=/usr/local/Cellar/git/1.7.4.1/libexec/git-core:$PATH"
