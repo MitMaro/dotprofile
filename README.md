@@ -28,7 +28,7 @@ Requirements
 Following packages are required:
 
 * git-core
-
+* colordiff
 
 Options and Settings
 ------------------
