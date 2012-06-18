@@ -60,10 +60,19 @@ fi
 __compat "OSX" 'alias nlog="tail -f -n50 /usr/local/var/logs/nginx/error.log"'
 
 # Add colors to ls, grep
-__compat "OSX" "alias ls='gls --color'"
+__compat "OSX" "alias ls='$(brew --prefix coreutils)/bin/gls --color'"
 __compat "Linux" "alias ls='ls --color'"
 alias grep='grep --color=auto'
 
+# json pretty
+alias json="python -mjson.tool"
+
+# url encoder
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+
+# strip most html tags
+alias striptags="sed -e :a -e 's/<[^>]*>//g;/</N;//ba'"
 
 # clear alias
 alias c=clear
+
