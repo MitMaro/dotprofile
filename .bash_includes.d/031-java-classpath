@@ -1,0 +1,10 @@
+#!/bin/bash
+
+: '
+Personal .profile - Java CLASSPATH setup
+By: Tim Oram
+#'
+
+__compat "OSX" "CLASSPATH=$HOME/Library/Java/junit-4.10.jar:."
+
+export CLASSPATH
