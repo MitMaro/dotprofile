@@ -23,6 +23,8 @@ Requirements
     * lesspipe
     * gcal
 
+* [TextWrangler](http://www.barebones.com/products/textwrangler/)
+
 ### Ubuntu/Linux
 
 Following packages are required:
