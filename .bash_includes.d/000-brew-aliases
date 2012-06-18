@@ -14,9 +14,10 @@ Reference: /usr/local/Cellar/coreutils/8.7/aliases
 # OSX only
 if [[ "$(uname)" == 'Darwin' ]]; then
 
+gnu_prefix=$(brew --prefix coreutils)/bin/
 
 ## homebrew coreutils aliases
-alias ls="$brew_prefix/bin/gls"
+alias ls=$gnu_prefix"gls"
 alias cal="gcal"
 
 fi
