@@ -5,6 +5,8 @@ Personal .profile - Java CLASSPATH setup
 By: Tim Oram
 #'
 
-__compat "OSX" "CLASSPATH=$HOME/Library/Java/junit-4.10.jar:."
+__compat "OSX" "CLASSPATH=\"$HOME/Library/Java/junit-4.10.jar:.\""
+
+CLASSPATH="$HOME/.java/*:"$CLASSPATH
 
 export CLASSPATH
