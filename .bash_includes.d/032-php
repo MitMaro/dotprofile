@@ -1,0 +1,10 @@
+#!/bin/bash
+
+: '
+Personal .profile - PHP setup
+By: Tim Oram
+#'
+
+
+
+__compat "OSX" "PATH=\"$PATH:/usr/local/Cellar/php54/5.4.4/bin\""
