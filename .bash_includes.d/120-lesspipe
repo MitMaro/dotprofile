@@ -2,6 +2,7 @@
 : '
 Personal .profile - lesspipe
 #'
+
 ___lesspipe_install_linux () {
     if [ ! -x /usr/bin/lesspipe ]; then
         __DEBUG_MESSAGE "lesspipe not installed, skipping."

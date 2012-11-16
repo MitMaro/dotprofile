@@ -21,8 +21,16 @@ HISTIGNORE="ls,history*,exit" # ignore these commands
 # this saves the command to the history file immediately
 PROMPT_COMMAND="${PROMPT_COMMAND}history -a;"
 
-# enable unicode
-export LC_CTYPE=en_US.UTF-8
+# enable unicode if possible
+avail_locales=`locale -a`
+locale_order=("en_CA.utf8" "en_CA.UTF-8" "en_US.utf8" "en_CA.UTF-8")
+for locale in "${locale_order[@]}"; do
+	array_contains "$locale" ${avail_locales[@]}
+	if [[ "$?" == "0" ]]; then
+		export LC_CTYPE=$locale
+		break;
+	fi
+done;
 
 # ls colors
 export CLICOLOR=1

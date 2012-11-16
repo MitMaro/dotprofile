@@ -3,6 +3,7 @@
 Personal .profile - Bash Completions
 By: Tim Oram
 '
+
 ___bash_completions_install () {
     if [ -f $1 ] && ! shopt -oq posix; then
         . $1
